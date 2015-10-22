@@ -1,0 +1,10 @@
+{
+  "name": "iot-roadshow",
+  "description": "Simple application made for the IoT Intel Roadshow 2015.",
+  "dependencies": {
+    "angular-material": "~0.11.2",
+    "angular": "~1.4.7",
+    "angular-messages": "~1.4.7",
+    "angular-route": "~1.4.7"
+  }
+}
