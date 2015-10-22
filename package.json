@@ -1,0 +1,17 @@
+{
+  "name": "iot-roadshow",
+  "version": "1.0.0",
+  "description": "Simple application made for the IoT Intel Roadshow 2015",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kurtz1993/iot-roadshow.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "mongodb": "^2.0.46",
+    "mosca": "^0.32.1",
+    "mqtt": "^1.4.3"
+  }
+}
