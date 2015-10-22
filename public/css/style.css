@@ -1,4 +1,6 @@
-#chartDiv {
-	width: 100%;
+.chartDiv {
+	width: 49%;
 	height: 400px;
+	box-sizing: border-box;
+	display: inline-block;
 }
