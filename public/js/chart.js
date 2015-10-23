@@ -80,6 +80,15 @@ function updateChart(type, dataProvider) {
  * Render the charts whenever the DOM is ready.
  */
 AmCharts.ready(function () {
+	$.get("http://mswmqtt.cloudapp.net/data")
+		.done(function (response) {
+			if (response.success) {
+				UVData[0].value = response.data[0].value;
+				tempData[0].value = response.data[1].value;
+				updateChart("uv", UVData);
+				updateChart("temp", tempData);
+			}
+		});
 	setInterval(function (){
 		$.get("http://mswmqtt.cloudapp.net/data")
 		.done(function (response) {
