@@ -65,6 +65,13 @@ webServer.get("/data", function (req, res) {
 	});
 });
 
+webServer.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+
 mqtt = new mosca.Server(moscaSettings);
 mqtt.on('clientConnected', function (client) {
 	console.log('Client connected: ', client.id);
