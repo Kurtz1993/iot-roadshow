@@ -10,7 +10,7 @@ var tempData = [{
 		"value": 0.0
 }];
 var chartConfig = {
-	uv:{
+	uv: {
 		title: "UV Index",
 		balloonText: "UV Index: [[value]]",
 		div: "UVDiv",
@@ -27,11 +27,12 @@ var chartConfig = {
 /**
  * Updates the chart with the processed data from the socket event.
  * @param type String: The type of the chart that's going to be updated.
+ * @param dataProvider Object: The data that will be represented on the chart
  */
-function updateChart(type) {
+function updateChart(type, dataProvider) {
 	// Serial chart basic data
 	chart = new AmCharts.AmSerialChart();
-	chart.dataProvider = (type === "uv") ? UVData : tempData;
+	chart.dataProvider = dataProvider;
 	chart.categoryField = "type";
 	if (reload === false) {
 		chart.startDuration = 1;
@@ -78,7 +79,14 @@ function updateChart(type) {
  * Render the charts whenever the DOM is ready.
  */
 AmCharts.ready(function () {
-	updateChart("uv");
-	updateChart("temp");
+	$.get("http://localhost:4500/data")
+		.done(function (response) {
+			if (response.success) {
+				UVData[0].value = response.data[0].value;
+				tempData[0].value = response.data[1].value;
+				updateChart("uv", UVData);
+				updateChart("temp", tempData);
+			}
+		});
 	reload = true;
 });
