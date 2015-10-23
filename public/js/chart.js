@@ -62,7 +62,7 @@ function updateChart(type, dataProvider) {
 	graph.type = "column";
 	graph.title = chartConfig[type].title;
 	graph.valueField = "value";
-	graph.balloonText = chartConfig[type].balloonText;
+	graph.balloonText = chartConfig[type].balloonText + dataProvider.timestamp;
 	graph.lineAlpha = 0;
 	graph.fillColors = chartConfig[type].color;
 	graph.fillAlphas = 1;
@@ -95,6 +95,8 @@ AmCharts.ready(function () {
 			if (response.success) {
 				UVData[0].value = response.data[0].value;
 				tempData[0].value = response.data[1].value;
+				UVData[0].timestamp = response.data[0].timestamp;
+				tempData[0].timestamp = response.data[1].timestamp;
 				updateChart("uv", UVData);
 				updateChart("temp", tempData);
 			}
