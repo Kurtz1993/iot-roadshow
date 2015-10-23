@@ -80,7 +80,7 @@ function updateChart(type, dataProvider) {
  * Render the charts whenever the DOM is ready.
  */
 AmCharts.ready(function () {
-	$.get("http://localhost:4500/data")
+	$.get("http://mswmqtt.cloudapp.net/data")
 		.done(function (response) {
 			if (response.success) {
 				UVData[0].value = response.data[0].value;
