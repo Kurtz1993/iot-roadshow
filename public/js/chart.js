@@ -1,5 +1,4 @@
 // Variables
-// var socket = io();
 var chart = null;
 var reload = false;
 var UVData = [{
@@ -75,17 +74,11 @@ function updateChart(type) {
 	chart.write(chartConfig[type].div);
 }
 
+/**
+ * Render the charts whenever the DOM is ready.
+ */
 AmCharts.ready(function () {
 	updateChart("uv");
 	updateChart("temp");
 	reload = true;
 });
-
-// Socket events
-
-/**
- * Will update the chart whenever dat arrives
- */
-/*socket.on('update', function (data) {
-	console.log(data);
-});*/
