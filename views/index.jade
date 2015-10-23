@@ -7,6 +7,9 @@ html(lang="en")
 body
 	#UVDiv.chartDiv
 	#tempDiv.chartDiv
+	#readings
+		h2 Current UV Index: #[span(id="uv")]
+		h2 Current temperature: #[span(id="temp")] °C
 	
 	script(src="lib/amcharts/amcharts.js")
 	script(src="lib/amcharts/serial.js")

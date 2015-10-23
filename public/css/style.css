@@ -1,6 +1,23 @@
+body {
+	font-family: "Segoe UI Light", sans-serif;
+}
+
 .chartDiv {
 	width: 49%;
 	height: 400px;
 	box-sizing: border-box;
 	display: inline-block;
+}
+
+#readings{
+	width: 100%;
+	display: block;
+	box-sizing: border-box;
+	text-align: center;
+}
+
+#readings h2 {
+	display: inline-block;
+	width: 50%;
+	box-sizing: border-box;
 }

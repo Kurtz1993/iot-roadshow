@@ -18,7 +18,7 @@ var chartConfig = {
 	},
 	temp: {
 		title: "Temperature",
-		balloonText: "Temperature: [[value]]",
+		balloonText: "Temperature: [[value]] °C",
 		div: "tempDiv",
 		color: "tomato"
 	}
@@ -73,6 +73,7 @@ function updateChart(type, dataProvider) {
 	chart.addLegend(legend);
 	chart.creditsPosition = "top-right";
 	chart.write(chartConfig[type].div);
+	$('#' + type).text(dataProvider[0].value);
 }
 
 /**
